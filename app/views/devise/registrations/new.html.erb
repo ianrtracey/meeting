@@ -1,0 +1,36 @@
+<div class="ui two column centered grid">
+<h2>Sign up</h2>
+
+
+
+<div class="column centered">
+  <div class="ui card">
+  <div class="content">
+    <div class="header">Sign Up</div>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+  	<div class="ui input">
+    <%= f.input_field :email, required: true, autofocus: true, placeholder: "youremail@here.com" %>
+	</div>
+	<br />
+	<div class="ui input">
+    <%= f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "password" %>
+	</div>
+	<br />
+	<div class="ui input">
+    <%= f.input_field :password_confirmation, required: true, placeholder: "password again" %>
+  	</div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "ui button" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>
+
+</div>
+</div>
+
+
+  </div>
+</div>

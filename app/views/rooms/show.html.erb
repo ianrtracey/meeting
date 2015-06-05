@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<div class="ui page grid">
+    <div class="ten wide column centered">
+    	<div class="ui card fluid">
+  <div class="content">
+    <div class="header"><%= @room.title %></div>
+    <div class="meta"><%= @room.created_at %></div>
+    <div class="description">
+      <%= @room.description %>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+
+
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

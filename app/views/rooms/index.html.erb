@@ -1,0 +1,71 @@
+<div class="ui grid">
+<p id="notice"><%= notice %></p>
+<h1>Listing Rooms</h1>
+
+<div class="eight wide column centered">
+  <div class="ui segment">
+  <div class="ui fluid category search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search rooms...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+</div>
+
+</div>
+<div class="ui page grid">
+
+<% @rooms.each do |room| %>
+    <div class="four wide column">
+      <div class="ui card fluid">
+        <div class="content">
+          <a class="ui ribbon label red">Upcoming</a>
+          <div class="header"><%= link_to room.title, room %></div>
+          <div class="meta">Created <%=time_ago_in_words(room.created_at) %> ago</div>
+          <div class="description">
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<div class="four wide column">
+<div class="ui card fluid">
+  <div class="content">
+    <div class="header">Create New Room</div>
+        <%= link_to 'New Room ', new_room_path %><div class="ui icon button" data-content="Add users to your feed">
+    <i class="add icon"></i>
+  </div>
+</div>
+</div>
+
+</div><!-- end of page grid -->
+
+<script>
+var
+  content = [
+    {
+      title: 'Horse',
+      description: 'An Animal',
+    },
+    {
+      title: 'Cow',
+      description: 'Another Animal',
+    }
+  ]
+;
+$('.ui.search')
+  .search({
+    source : content,
+    searchFields   : [
+      'title'
+    ],
+    searchFullText: false
+  })
+;
+</script>
+
+
+
+ 

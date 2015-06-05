@@ -13,3 +13,1509 @@
   [1m[35m (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150604030051')
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "meets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "title" varchar DEFAULT '', "description" varchar DEFAULT '', "user_id" integer, "start_time" datetime, "end_time" datetime, "invitees" integer) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (3.0ms)[0m  [1mCREATE  INDEX "index_meets_on_user_id" ON "meets" ("user_id")[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "title" varchar DEFAULT '', "description" varchar DEFAULT '', "user_id" integer, "start_time" datetime, "end_time" datetime, "invitees" integer) 
+  [1m[36m (2.4ms)[0m  [1mCREATE  INDEX "index_rooms_on_user_id" ON "rooms" ("user_id")[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150604032813')[0m
+  [1m[35m (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150604030051')
+  [1m[36m (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150604031151')[0m
+  [1m[35m (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150604032708')
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2015-06-04 03:34:50.484049"], ["updated_at", "2015-06-04 03:34:50.484049"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 6.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (2.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2015-06-04 03:34:50.509757"], ["updated_at", "2015-06-04 03:34:50.509757"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.530401"], ["updated_at", "2015-06-04 03:34:50.530401"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"these"=>"params"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameter: these
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.538028"], ["updated_at", "2015-06-04 03:34:50.538028"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.543392"], ["updated_at", "2015-06-04 03:34:50.543392"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.549631"], ["updated_at", "2015-06-04 03:34:50.549631"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.2ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.557829"], ["updated_at", "2015-06-04 03:34:50.557829"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.564648"], ["updated_at", "2015-06-04 03:34:50.564648"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 9ms (ActiveRecord: 7.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2015-06-04 03:34:50.580107"], ["updated_at", "2015-06-04 03:34:50.580107"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-06-04 03:34:50.587562"], ["updated_at", "2015-06-04 03:34:50.587562"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.032576"], ["updated_at", "2015-06-04 03:36:38.032576"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.048532"], ["updated_at", "2015-06-04 03:36:38.048532"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.055556"], ["updated_at", "2015-06-04 03:36:38.055556"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.067326"], ["updated_at", "2015-06-04 03:36:38.067326"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.074313"], ["updated_at", "2015-06-04 03:36:38.074313"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.080796"], ["updated_at", "2015-06-04 03:36:38.080796"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"these"=>"params"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameter: these
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.088636"], ["updated_at", "2015-06-04 03:36:38.088636"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.094061"], ["updated_at", "2015-06-04 03:36:38.094061"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.101625"], ["updated_at", "2015-06-04 03:36:38.101625"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.108856"], ["updated_at", "2015-06-04 03:36:38.108856"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.121404"], ["updated_at", "2015-06-04 03:36:38.121404"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.132583"], ["updated_at", "2015-06-04 03:36:38.132583"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:36:38.139488"], ["updated_at", "2015-06-04 03:36:38.139488"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.118259"], ["updated_at", "2015-06-04 03:37:30.118259"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.136339"], ["updated_at", "2015-06-04 03:37:30.136339"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.143595"], ["updated_at", "2015-06-04 03:37:30.143595"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.149738"], ["updated_at", "2015-06-04 03:37:30.149738"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.156282"], ["updated_at", "2015-06-04 03:37:30.156282"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.161940"], ["updated_at", "2015-06-04 03:37:30.161940"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.167916"], ["updated_at", "2015-06-04 03:37:30.167916"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.175721"], ["updated_at", "2015-06-04 03:37:30.175721"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.185246"], ["updated_at", "2015-06-04 03:37:30.185246"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.191432"], ["updated_at", "2015-06-04 03:37:30.191432"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.198807"], ["updated_at", "2015-06-04 03:37:30.198807"]]
+  [1m[36m (6.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 9ms (ActiveRecord: 7.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.219047"], ["updated_at", "2015-06-04 03:37:30.219047"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (1.9ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:37:30.225542"], ["updated_at", "2015-06-04 03:37:30.225542"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.847959"], ["updated_at", "2015-06-04 03:38:04.847959"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+  [1m[35m (2.9ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.858810"], ["updated_at", "2015-06-04 03:38:04.858810"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.868737"], ["updated_at", "2015-06-04 03:38:04.868737"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.874691"], ["updated_at", "2015-06-04 03:38:04.874691"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.884640"], ["updated_at", "2015-06-04 03:38:04.884640"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.891715"], ["updated_at", "2015-06-04 03:38:04.891715"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.898332"], ["updated_at", "2015-06-04 03:38:04.898332"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.904341"], ["updated_at", "2015-06-04 03:38:04.904341"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.922576"], ["updated_at", "2015-06-04 03:38:04.922576"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.936870"], ["updated_at", "2015-06-04 03:38:04.936870"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.945599"], ["updated_at", "2015-06-04 03:38:04.945599"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.951511"], ["updated_at", "2015-06-04 03:38:04.951511"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "rooms" WHERE "rooms"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:38:04.957574"], ["updated_at", "2015-06-04 03:38:04.957574"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "rooms" WHERE "rooms"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.502316"], ["updated_at", "2015-06-04 03:39:34.502316"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.518043"], ["updated_at", "2015-06-04 03:39:34.518043"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.525358"], ["updated_at", "2015-06-04 03:39:34.525358"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.537394"], ["updated_at", "2015-06-04 03:39:34.537394"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.544935"], ["updated_at", "2015-06-04 03:39:34.544935"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.552234"], ["updated_at", "2015-06-04 03:39:34.552234"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.559003"], ["updated_at", "2015-06-04 03:39:34.559003"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.565369"], ["updated_at", "2015-06-04 03:39:34.565369"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.574128"], ["updated_at", "2015-06-04 03:39:34.574128"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.581232"], ["updated_at", "2015-06-04 03:39:34.581232"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.596579"], ["updated_at", "2015-06-04 03:39:34.596579"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.602554"], ["updated_at", "2015-06-04 03:39:34.602554"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:39:34.608250"], ["updated_at", "2015-06-04 03:39:34.608250"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.224359"], ["updated_at", "2015-06-04 03:40:49.224359"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.232609"], ["updated_at", "2015-06-04 03:40:49.232609"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.239294"], ["updated_at", "2015-06-04 03:40:49.239294"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.256835"], ["updated_at", "2015-06-04 03:40:49.256835"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (3.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.269061"], ["updated_at", "2015-06-04 03:40:49.269061"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.275906"], ["updated_at", "2015-06-04 03:40:49.275906"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (1.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.281903"], ["updated_at", "2015-06-04 03:40:49.281903"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.290832"], ["updated_at", "2015-06-04 03:40:49.290832"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.306178"], ["updated_at", "2015-06-04 03:40:49.306178"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.313362"], ["updated_at", "2015-06-04 03:40:49.313362"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.321071"], ["updated_at", "2015-06-04 03:40:49.321071"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (1.9ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.327667"], ["updated_at", "2015-06-04 03:40:49.327667"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:40:49.333916"], ["updated_at", "2015-06-04 03:40:49.333916"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.600305"], ["updated_at", "2015-06-04 03:41:24.600305"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.620810"], ["updated_at", "2015-06-04 03:41:24.620810"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.628302"], ["updated_at", "2015-06-04 03:41:24.628302"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.635071"], ["updated_at", "2015-06-04 03:41:24.635071"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.641499"], ["updated_at", "2015-06-04 03:41:24.641499"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.648743"], ["updated_at", "2015-06-04 03:41:24.648743"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.656070"], ["updated_at", "2015-06-04 03:41:24.656070"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.674669"], ["updated_at", "2015-06-04 03:41:24.674669"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.686526"], ["updated_at", "2015-06-04 03:41:24.686526"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.695639"], ["updated_at", "2015-06-04 03:41:24.695639"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.700319"], ["updated_at", "2015-06-04 03:41:24.700319"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.707948"], ["updated_at", "2015-06-04 03:41:24.707948"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "rooms" WHERE "rooms"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:24.715807"], ["updated_at", "2015-06-04 03:41:24.715807"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "rooms" WHERE "rooms"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 16ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.084418"], ["updated_at", "2015-06-04 03:41:41.084418"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.092698"], ["updated_at", "2015-06-04 03:41:41.092698"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.099481"], ["updated_at", "2015-06-04 03:41:41.099481"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.116868"], ["updated_at", "2015-06-04 03:41:41.116868"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.127982"], ["updated_at", "2015-06-04 03:41:41.127982"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.134690"], ["updated_at", "2015-06-04 03:41:41.134690"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.141906"], ["updated_at", "2015-06-04 03:41:41.141906"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.148346"], ["updated_at", "2015-06-04 03:41:41.148346"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.154693"], ["updated_at", "2015-06-04 03:41:41.154693"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (8.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.167801"], ["updated_at", "2015-06-04 03:41:41.167801"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.175074"], ["updated_at", "2015-06-04 03:41:41.175074"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.181739"], ["updated_at", "2015-06-04 03:41:41.181739"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:41.189827"], ["updated_at", "2015-06-04 03:41:41.189827"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.254148"], ["updated_at", "2015-06-04 03:41:46.254148"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  ORDER BY "rooms"."id" DESC LIMIT 1
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.263502"], ["updated_at", "2015-06-04 03:41:46.263502"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (2.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.271970"], ["updated_at", "2015-06-04 03:41:46.271970"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"title"=>"this is a title", "description"=>"this is a desc"}}
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.288580"], ["updated_at", "2015-06-04 03:41:46.288580"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.299139"], ["updated_at", "2015-06-04 03:41:46.299139"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"This is a test title", "description"=>"this is a test description"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms/1
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.306217"], ["updated_at", "2015-06-04 03:41:46.306217"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"title"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.314738"], ["updated_at", "2015-06-04 03:41:46.314738"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.322936"], ["updated_at", "2015-06-04 03:41:46.322936"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"description"=>"new title"}, "id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.336538"], ["updated_at", "2015-06-04 03:41:46.336538"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.343012"], ["updated_at", "2015-06-04 03:41:46.343012"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.349468"], ["updated_at", "2015-06-04 03:41:46.349468"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.0ms)[0m  [1mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.357833"], ["updated_at", "2015-06-04 03:41:46.357833"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered rooms/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by RoomsController#new as HTML
+  Rendered rooms/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "This is a test title"], ["description", "this is a test description"], ["created_at", "2015-06-04 03:41:46.366881"], ["updated_at", "2015-06-04 03:41:46.366881"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+  Rendered rooms/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  [1m[36m (2.7ms)[0m  [1mrollback transaction[0m
